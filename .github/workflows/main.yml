@@ -12,6 +12,10 @@ jobs:
     analyze:
       name: Analyze
       runs-on: ubunti-latest
+      strategy:
+        fail-fast: false
+        matrix:
+          language:['java']
       steps:
         uses: github/codeql-action/init@v2
         -name: Initialize CodeQL
