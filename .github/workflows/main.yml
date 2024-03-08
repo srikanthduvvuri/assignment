@@ -17,9 +17,9 @@ jobs:
         -name: Initialize CodeQL
         with:
           languages: 'java'
-        -name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
-          
+        -name: Perform CodeQL Analysis
+         
     build:
       runs-on: ubuntu-latest
       steps:
