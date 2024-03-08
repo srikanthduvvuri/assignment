@@ -15,7 +15,7 @@ jobs:
       strategy:
         fail-fast: false
         matrix:
-          language:['java']
+          language: ['java', 'javascript']
       steps:
         - name: Initialize CodeQL
           uses: github/codeql-action/init@v2
