@@ -22,7 +22,7 @@ jobs:
             name: Sonarlint
             title: Sonarlint report
             path: build/reports/sonarlint/*.xml
-    build:
+    build-and-test:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
@@ -34,6 +34,8 @@ jobs:
             cache: 'maven'
         - name: Build with Maven
           run: mvn clean install
+        - name: test customer controller
+          run: mvn run Test
     sonarcloud:
       runs-on: ubuntu-latest
       steps:
