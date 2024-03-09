@@ -35,7 +35,7 @@ jobs:
         - name: Build with Maven
           run: mvn clean install
         - name: test customer controller
-          run: mvn run Test
+          run: mvn test
     sonarcloud:
       runs-on: ubuntu-latest
       steps:
