@@ -16,10 +16,12 @@ jobs:
           uses: actions/checkout@v4
           with:
             fetch-depth: 0
-        - name: Super-Linter
-          uses: super-linter/super-linter@v6.3.0
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Publish Sonarlint Results
+          uses: jwgmeligmeyling/spotbugs-github-action@v1.2
+          with:
+            name: Sonarlint
+            title: Sonarlint report
+            path: build/reports/sonarlint/*.xml
     build:
       runs-on: ubuntu-latest
       steps:
