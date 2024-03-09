@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.isNotNull;
 import static org.mockito.Mockito.lenient;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,6 +30,12 @@ public class CustomerControllerTest {
     void TestCreateCustomer() throws Exception {
         lenient().when(repository.save(Mockito.any(Customer.class))).thenReturn(new Customer());
         assertThat(controller.createCustomer(new Customer())).isNotNull();
+    }
+
+    @Test
+    void TestGetAllCustomers() throws Exception {
+        lenient().when(repository.findAll()).thenReturn(new ArrayList<>());
+        assertThat(controller.getAllCustomers()).isNotNull();
     }
 
 }
