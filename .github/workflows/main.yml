@@ -40,8 +40,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
+        - name: Setup JDK
+          uses: actions/setup-java@v4
           with:
-            fetch-depth: 0
+            java-version: '11'
         - name: SonarCloud Scan
           run: ./mvnw -B verify sonar:sonar -Dsonar.projectKey=srikanthduvvuri -Dsonar.organization=srikanthduvvuri -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
           env:
