@@ -5,10 +5,7 @@ on:
     branches:
       - main
       - testing
-  pull_request:
-    branches:
-      - main
-      - testing
+
 
 jobs:
     lint:
