@@ -43,4 +43,16 @@ public class CustomerControllerTest {
         lenient().when(repository.findByCustId(Mockito.anyString())).thenReturn(new Customer());
         assertThat(controller.getCustomerById("103")).isNotNull();
     }
+    
+    @Test
+    void TestUpdateCustomer() throws Exception {
+        Customer testCust = new Customer();
+        testCust.setCustId("105");
+        testCust.setName("Rohan");
+        testCust.setEmail("rohan@gmail.com");
+        lenient().when(repository.findByCustId(Mockito.anyString())).thenReturn(testCust);
+        lenient().when(repository.save(Mockito.any(Customer.class))).thenReturn(testCust);
+        assertThat(controller.updateCustomer(testCust, "103")).isNotNull();
+    }
+
 }
