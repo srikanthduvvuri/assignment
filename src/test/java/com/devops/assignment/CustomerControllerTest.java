@@ -38,4 +38,9 @@ public class CustomerControllerTest {
         assertThat(controller.getAllCustomers()).isNotNull();
     }
 
+    @Test
+    void TestGetCustomerById() throws Exception {
+        lenient().when(repository.findByCustId(Mockito.anyString())).thenReturn(new Customer());
+        assertThat(controller.getCustomerById("103")).isNotNull();
+    }
 }
