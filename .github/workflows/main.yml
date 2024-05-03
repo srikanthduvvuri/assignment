@@ -5,7 +5,10 @@ on:
     branches:
       - main
       - testing
-
+  pull_request:
+    branches:
+      - main
+      - testing
 
 jobs:
     lint:
@@ -39,15 +42,15 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
+        - name: Setup JDK
+          uses: actions/setup-java@v4
           with:
-            fetch-depth: 0
+            java-version: '17'
+            distribution: 'zulu'
+            cache: 'maven'
         - name: SonarCloud Scan
-          uses: mvn clean verify sonar:sonar
+          run: ./mvnw -B verify sonar:sonar -Dsonar.organization=srikanthduvvuri -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=$SONAR_TOKEN
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          with: 
-            args:
-              -Dsonar.organization=srikanthduvvuri
-              -Dsonar.projectKey=srikanthduvvuri
   

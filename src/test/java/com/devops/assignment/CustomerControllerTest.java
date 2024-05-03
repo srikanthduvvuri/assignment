@@ -47,7 +47,7 @@ public class CustomerControllerTest {
     @Test
     void TestUpdateCustomer() throws Exception {
         Customer testCust = new Customer();
-        testCust.setCustId("105");
+        testCust.setCustId("103");
         testCust.setName("Rohan");
         testCust.setEmail("rohan@gmail.com");
         lenient().when(repository.findByCustId(Mockito.anyString())).thenReturn(testCust);
@@ -56,3 +56,4 @@ public class CustomerControllerTest {
     }
 
 }
+
