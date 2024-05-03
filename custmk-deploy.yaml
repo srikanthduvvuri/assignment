@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: cust-deployment
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: assignsrvr
+  template:
+    metadata:
+      labels:
+        app: assignsrvr
+    spec:
+      containers:
+        - name: assignsrvrctr
+          image: assignsrvr
+          ports:
+            - containerPort: 8080

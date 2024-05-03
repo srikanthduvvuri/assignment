@@ -43,7 +43,7 @@ public class CustomerControllerTest {
         lenient().when(repository.findByCustId(Mockito.anyString())).thenReturn(new Customer());
         assertThat(controller.getCustomerById("103")).isNotNull();
     }
-    
+
     @Test
     void TestUpdateCustomer() throws Exception {
         Customer testCust = new Customer();
@@ -56,3 +56,4 @@ public class CustomerControllerTest {
     }
 
 }
+
